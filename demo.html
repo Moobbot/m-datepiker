@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Datepicker - Default functionality</title>
+  <link rel="stylesheet" href="./jquery-ui.css">
+  <link rel="stylesheet" href="./m-datepiker.css">
+</head>
+
+<body style="display: flex; justify-content: space-between;">
+  <div class="m-datepicker CIO-datepicker">
+    <span>2 date</span>
+    <div class="m-check-in">
+      <!-- <input type="text" class="js-CI"> -->
+    </div>
+    <div class="m-check-out">
+      <!-- <input type="text" class="js-CO"> -->
+    </div>
+  </div>
+  <div class="m-datepicker CI-datepicker">
+    <span>check-in</span>
+    <div class="m-check-in">
+    </div>
+  </div>
+  <div class="m-datepicker CO-datepicker">
+    <span>check-out</span>
+    <div class="m-check-out">
+    </div>
+  </div>
+</body>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
+<script src="./jquery-3.6.1.js"></script>
+<script src="./jquery-ui.js"></script>
+<script src="./m-datepicker.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.CIO-datepicker').mDatePicker();
+    //$('Class/ID').mDatePicker('minDate', '18-12-2022');
+    //$('Class/ID').datepicker({ dateFormat: 'dd-mm-yy' });
+    $('.CI-datepicker').mDatePicker();
+    $('.CO-datepicker').mDatePicker('updateCO', '');
+  });
+</script>
+
+</html>
