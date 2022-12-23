@@ -1,3 +1,10 @@
+.m-datepiker {
+	z-index: 9999 !important;
+}
+.m-check-in input,
+.m-check-out input {
+	width: 100%;
+}
 .m-datepiker td span,
 .m-datepiker td a {
 	padding: 0;

@@ -331,9 +331,13 @@
 		var check_in_div = $(this).find('.m-check-in');
 		var check_out_div = $(this).find('.m-check-out');
 		var input_CI =
-			"<input type='text' class='js-CI' placeholder = '" + titleCheckIn + "'>";
+			"<input type='text' class='m-input-check-in js-input-check-in' placeholder = '" +
+			titleCheckIn +
+			"'>";
 		var input_CO =
-			"<input type='text' class='js-CO'placeholder = '" + titleCheckOut + "'>";
+			"<input type='text' class='m-input-check-out js-input-check-out'placeholder = '" +
+			titleCheckOut +
+			"'>";
 
 		//Kiểm tra xem tồn tại m-check-in/m-check-out
 		if (check_in_div) check_in_div.html(input_CI);
@@ -378,8 +382,10 @@
 			//Sự kiện click date
 			update_options.onSelect = function (dateText, inst) {
 				// console.clear();
-				date_CI_select = $(this).hasClass('js-CI') == true ? $(this).val() : '';
-				date_CO_select = $(this).hasClass('js-CO') == true ? $(this).val() : '';
+				date_CI_select =
+					$(this).hasClass('js-input-check-in') == true ? $(this).val() : '';
+				date_CO_select =
+					$(this).hasClass('js-input-check-out') == true ? $(this).val() : '';
 				//Xác định ngày được chọn
 				if (date_CI_select != '' && date_CI_select != null) {
 					//Cập nhật startDate
@@ -400,24 +406,24 @@
 					//Cập nhật minDate cho dateCheckOut
 					$(this)
 						.parents('.m-datepicker')
-						.find('.m-check-out .js-CO')
+						.find('.m-check-out .js-input-check-out')
 						.datepicker('option', 'minDate', startDate_show);
 					//Cập nhật endDate hiển thị cho người dùng
 					$(this)
 						.parents('.m-datepicker')
-						.find('.m-check-out .js-CO')
+						.find('.m-check-out .js-input-check-out')
 						.val(endDate_show);
 					//
 					if (
 						!$(this)
 							.parents('.m-datepicker')
-							.find('.js-CO')
-							.hasClass('.js-CO-show')
+							.find('.js-input-check-out')
+							.hasClass('.js-input-check-out-show')
 					) {
 						$(this)
 							.parents('.m-datepicker')
-							.find('.js-CO')
-							.addClass('js-CO-show');
+							.find('.js-input-check-out')
+							.addClass('js-input-check-out-show');
 					}
 				}
 				if (date_CO_select != '' && date_CO_select != null) {
@@ -429,15 +435,18 @@
 			};
 			//Sự kiện hiển thị dateCheckOut sau khi dateCheckIn đóng
 			update_options.onClose = function (dateText, inst) {
-				if ($(this).parents('.m-datepicker').find('.js-CO-show')) {
-					// $(this).parents('.m-datepicker').find('.js-CO-show').datepicker('show');
-
-					$(this).parents('.m-datepicker').find('.js-CO-show').trigger('focus');
+				if ($(this).parents('.m-datepicker').find('.js-input-check-out-show')) {
+					// $(this).parents('.m-datepicker').find('.js-input-check-out-show').datepicker('show');
 
 					$(this)
 						.parents('.m-datepicker')
-						.find('.js-CO-show')
-						.removeClass('js-CO-show');
+						.find('.js-input-check-out-show')
+						.trigger('focus');
+
+					$(this)
+						.parents('.m-datepicker')
+						.find('.js-input-check-out-show')
+						.removeClass('js-input-check-out-show');
 				}
 			};
 		}
@@ -446,7 +455,8 @@
 			endDate = null;
 			//Sự kiện click date
 			update_options.onSelect = function (dateText, inst) {
-				date_CI_select = $(this).hasClass('js-CI') == true ? $(this).val() : '';
+				date_CI_select =
+					$(this).hasClass('js-input-check-in') == true ? $(this).val() : '';
 				//Xác định ngày được chọn
 				if (date_CI_select != '' && date_CI_select != null) {
 					//Cập nhật startDate
@@ -468,7 +478,8 @@
 		if (check_in_div.length === 0 && check_out_div.length !== 0) {
 			//Sự kiện click date
 			update_options.onSelect = function (dateText, inst) {
-				date_CO_select = $(this).hasClass('js-CO') == true ? $(this).val() : '';
+				date_CO_select =
+					$(this).hasClass('js-input-check-out') == true ? $(this).val() : '';
 				//Xác định ngày được chọn
 				if (date_CO_select != '' && date_CO_select != null) {
 					endDate = Convert_timeStamp(ConvertUTC(date_CO_select));
@@ -479,13 +490,13 @@
 		//Khởi tạo datepicker Check In
 		if (check_in_div) {
 			if (check_in_div)
-				$(check_in_div).find('.js-CI').datepicker(update_options);
+				$(check_in_div).find('.js-input-check-in').datepicker(update_options);
 		}
 
 		//Khởi tạo datepicker Check Out
 		if (check_out_div) {
 			if (check_out_div)
-				$(check_out_div).find('.js-CO').datepicker(update_options);
+				$(check_out_div).find('.js-input-check-out').datepicker(update_options);
 		}
 		$('.ui-datepicker').addClass('m-datepiker');
 		// Delete update_options old
