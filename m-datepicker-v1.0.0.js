@@ -486,7 +486,7 @@
 			if (check_out_div)
 				$(check_out_div).find('.js-CO').datepicker(update_options);
 		}
-		$('.ui-datepicker').addClass('m-datepiker');
+		$('.ui-datepicker').addClass('m-datepicker');
 		// Delete update_options old
 		update_options = [];
 	};
