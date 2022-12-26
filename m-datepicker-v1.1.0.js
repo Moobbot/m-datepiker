@@ -2,7 +2,7 @@
  * Tam Jquery Datepicker
  * Refer Tuds tDatepicker 2018
  * Licensed under: LICENSE
- * Version: v1.0.0
+ * Version: v1.1.0
  * Use: jquery 1.13
  * https://api.jqueryui.com/datepicker
  * https://www.tutorialspoint.com/jqueryui/jqueryui_datepicker.htm#:~:text=Option%20%26%20Description
