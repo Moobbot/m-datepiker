@@ -5,11 +5,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>m-datepicker</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./jquery-ui.css">
-  <link rel="stylesheet" href="./m-datepiker.css">
+  <link rel="stylesheet" href="./m-datepicker.css">
 </head>
 
-<body style="display: flex; justify-content: space-between;">
+<body>
   <div class="m-datepicker CIO-datepicker">
     <span>2 date</span>
     <div class="m-check-in">
@@ -34,13 +36,26 @@
 <script src="./jquery-3.6.1.js"></script>
 <script src="./jquery-ui.js"></script>
 <script src="./m-datepicker.js"></script>
+
+<!-- $('.CIO-datepicker').mDatePicker({
+  dateCheckIn: '5/12/2022',
+  dateCheckOut: '28/12/2022',
+  dateFormat: 'dd/mm/yy'
+}); -->
 <script>
   $(document).ready(function () {
-    $('.CIO-datepicker').mDatePicker();
+    $('.CIO-datepicker').mDatePicker({
+      iconDate: "<i class='fa fa-calendar'></i>",
+      //dateCheckIn: '5-12-2022',
+      // dateCheckOut: '28-12-2022',
+      //dateFormat: 'dd/mm/yy'
+    });
+    //$('.CIO-datepicker').mDatePicker('updateCO', '28-12-2022');
     //$('Class/ID').mDatePicker('minDate', '18-12-2022');
     //$('Class/ID').datepicker({ dateFormat: 'dd-mm-yy' });
     $('.CI-datepicker').mDatePicker();
-    $('.CO-datepicker').mDatePicker('updateCO', '');
+    $('.CO-datepicker').mDatePicker();
+    //$('.CO-datepicker').mDatePicker('updateCO', '25-12-2022');
   });
 </script>
 
