@@ -595,11 +595,9 @@
 		var startDate, endDate;
 		//Biến hiển thị date cho người dùng
 		var startDate_show, endDate_show;
-		var show;
-		startDate = ConvertUTCtimeStamp(ConvertUTCString(settings.minDate));
-		endDate = ConvertUTCtimeStamp(
-			increase_date(ConvertUTCString(settings.minDate), 1),
-		);
+
+		startDate = ConvertUTCtimeStamp(settings.minDate);
+		endDate = ConvertUTCtimeStamp(increase_date(settings.minDate, 1));
 		startDate_show = ConvertTimeStamptoDf(startDate);
 		endDate_show = ConvertTimeStamptoDf(endDate);
 
@@ -611,7 +609,7 @@
 					date.getMonth(),
 					date.getDate(),
 				);
-				if (theday >= startDate) {
+				if (startDate && theday >= startDate) {
 					if (theday <= endDate) {
 					}
 					return [true, theday <= endDate ? 'Highlighted' : ''];
@@ -622,7 +620,9 @@
 				return [true, '', ''];
 			}
 		};
-
+		settings.onHover = function (date) {
+			endDate = date;
+		};
 		// Nếu có cả dateCheckIn & dateCheckOut
 		if (check_in_div.length !== 0 && check_out_div.length !== 0) {
 			//Sự kiện click date
@@ -681,6 +681,16 @@
 								'',
 								'check-in',
 								ConvertUTCString(date_CI_select),
+							),
+						);
+					$(this)
+						.parents('.m-datepicker')
+						.find('.m-date-check-out')
+						.html(
+							editThemeCheckDate(
+								'',
+								'check-out',
+								ConvertUTCString(endDate_show),
 							),
 						);
 				}
@@ -806,11 +816,10 @@
 		settings = [];
 		update_options = [];
 	};
-	//
-	$('.m-check-in').on('click', function (e) {
+	$('body').delegate('.m-check-in', 'click', function () {
 		$(this).find('.m-input').trigger('focus');
 	});
-	$('.m-check-out').on('click', function (e) {
+	$('body').delegate('.m-check-out', 'click', function () {
 		$(this).find('.m-input').trigger('focus');
 	});
 })(jQuery);

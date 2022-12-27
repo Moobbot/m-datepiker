@@ -24,6 +24,7 @@
 	font-size: 13px;
 	cursor: pointer;
 	padding-left: 4px;
+	margin: 0;
 }
 .m-check-in i,
 .m-check-out i {
