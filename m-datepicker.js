@@ -609,10 +609,13 @@
 					date.getMonth(),
 					date.getDate(),
 				);
+
 				if (startDate && theday >= startDate) {
-					if (theday <= endDate) {
+					if (theday === startDate) return [true, 'Highlighted'];
+					else {
+						if (theday === endDate) return [true, 'Highlighted'];
+						else return [true, theday < endDate ? 'm-date-ranger' : ''];
 					}
-					return [true, theday <= endDate ? 'Highlighted' : ''];
 				} else {
 					return [true, '', ''];
 				}
@@ -620,9 +623,23 @@
 				return [true, '', ''];
 			}
 		};
-		settings.onHover = function (date) {
-			endDate = date;
-		};
+		// settings.mouseenter = function (date) {
+		// 	console.log(date);
+		// 	if (date != null && date != '') {
+		// 		var theday = Date.UTC(
+		// 			date.getFullYear(),
+		// 			date.getMonth(),
+		// 			date.getDate(),
+		// 		);
+		// 		if (startDate && theday >= startDate) {
+		// 			return [true, 'Highlighted'];
+		// 		} else {
+		// 			return [true, '', ''];
+		// 		}
+		// 	} else {
+		// 		return [true, '', ''];
+		// 	}
+		// };
 		// Nếu có cả dateCheckIn & dateCheckOut
 		if (check_in_div.length !== 0 && check_out_div.length !== 0) {
 			//Sự kiện click date
@@ -804,7 +821,7 @@
 			if (check_out_div)
 				$(check_out_div).find('.js-input-check-out').datepicker(settings);
 		}
-		$('.ui-datepicker').addClass('m-datepicker');
+		$('.ui-datepicker').addClass('m-datepicker-div');
 		//
 		if (settings.showOn === 'both' || settings.showOn === 'button') {
 			if (Defaults.iconDate !== iconDate) {
@@ -821,5 +838,15 @@
 	});
 	$('body').delegate('.m-check-out', 'click', function () {
 		$(this).find('.m-input').trigger('focus');
+	});
+	$('html').delegate('.m-datepicker-div td', 'mouseenter', function (e) {
+		// if (!$(this).hasClass('Highlighted')) {
+		$(this).addClass('m-date-hover');
+		// }
+		// console.log($(this).find('a').data('date'));
+	});
+	$('html').delegate('.m-datepicker-div td', 'mouseout', function (e) {
+		$(this).removeClass('m-date-hover');
+		// console.log($(this).find('a').data('date'));
 	});
 })(jQuery);

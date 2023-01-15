@@ -1,9 +1,9 @@
 .m-check-in,
 .m-check-out,
-.m-datepicker {
+.m-datepicker-div {
 	position: relative;
 }
-.m-datepicker {
+.m-datepicker-div {
 	clear: both;
 	font-size: 14px;
 	line-height: 1.4em;
@@ -44,8 +44,8 @@
 	position: absolute;
 	opacity: 0;
 }
-.m-datepicker td span,
-.m-datepicker td a {
+.m-datepicker-div td span,
+.m-datepicker-div td a {
 	padding: 0;
 	display: flex;
 	align-items: center;
@@ -67,45 +67,45 @@
 	cursor: pointer;
 }
 /*  */
-.m-datepicker .ui-state-default,
-.m-datepicker .ui-widget-content .ui-state-default,
-.m-datepicker .ui-widget-header .ui-state-default,
-.m-datepicker .ui-button,
-html .m-datepicker .ui-button.ui-state-disabled:hover,
-html .m-datepicker .ui-button.ui-state-disabled:active {
+.m-datepicker-div .ui-state-default,
+.m-datepicker-div .ui-widget-content .ui-state-default,
+.m-datepicker-div .ui-widget-header .ui-state-default,
+.m-datepicker-div .ui-button,
+html .m-datepicker-div .ui-button.ui-state-disabled:hover,
+html .m-datepicker-div .ui-button.ui-state-disabled:active {
 	text-align: center;
 }
-/* .m-datepicker .ui-state-highlight,
-.m-datepicker .ui-widget-content .ui-state-highlight,
-.m-datepicker .ui-widget-header .ui-state-highlight {
+/* .m-datepicker-div .ui-state-highlight,
+.m-datepicker-div .ui-widget-content .ui-state-highlight,
+.m-datepicker-div .ui-widget-header .ui-state-highlight {
 	background-color: #3089f1;
 	border: 1px solid #3089f1;
 	background: #3089f1;
 	color: #ffffff;
 } */
-.m-datepicker .ui-state-active,
-.m-datepicker .ui-widget-content .ui-state-active,
-.m-datepicker .ui-widget-header .ui-state-active,
-.m-datepicker a.ui-button:active,
-.m-datepicker .ui-button:active,
-.m-datepicker .ui-button.ui-state-active:hover {
+.m-datepicker-div .ui-state-active,
+.m-datepicker-div .ui-widget-content .ui-state-active,
+.m-datepicker-div .ui-widget-header .ui-state-active,
+.m-datepicker-div a.ui-button:active,
+.m-datepicker-div .ui-button:active,
+.m-datepicker-div .ui-button.ui-state-active:hover {
 	background-color: #3089f1;
 	border: 1px solid #3089f1;
 	background: #3089f1;
 	color: #ffffff;
 }
 
-/* .m-datepicker .ui-datepicker-days-cell-over a {
+/* .m-datepicker-div .ui-datepicker-days-cell-over a {
 	background-color: #3089f1;
 	border: 1px solid #3089f1;
 	background: #3089f1;
 	color: #ffffff;
 } */
-.m-datepicker .ui-widget-header .ui-icon {
+.m-datepicker-div .ui-widget-header .ui-icon {
 	background: none;
 	/* position: relative; */
 }
-.m-datepicker .ui-widget-header .ui-icon::after {
+.m-datepicker-div .ui-widget-header .ui-icon::after {
 	text-indent: 0;
 	content: '';
 	position: absolute;
@@ -118,24 +118,24 @@ html .m-datepicker .ui-button.ui-state-disabled:active {
 	align-items: center;
 	justify-content: center;
 }
-.m-datepicker .ui-datepicker-next .ui-icon::after {
+.m-datepicker-div .ui-datepicker-next .ui-icon::after {
 	content: '\276F';
 }
-.m-datepicker .ui-datepicker-prev .ui-icon::after {
+.m-datepicker-div .ui-datepicker-prev .ui-icon::after {
 	content: '\276E';
 }
-.m-datepicker .ui-datepicker-prev.ui-state-hover,
-.m-datepicker .ui-datepicker-next.ui-state-hover {
+.m-datepicker-div .ui-datepicker-prev.ui-state-hover,
+.m-datepicker-div .ui-datepicker-next.ui-state-hover {
 	font-weight: 700;
 	border: none;
 	background: none;
 	right: 1px;
 	top: 2px;
 }
-.m-datepicker .ui-widget-content .ui-state-disabled.ui-datepicker-today {
+.m-datepicker-div .ui-widget-content .ui-state-disabled.ui-datepicker-today {
 	opacity: 0.5;
 }
-.m-datepicker
+.m-datepicker-div
 	.ui-widget-content
 	.ui-state-disabled.ui-datepicker-today
 	.ui-state-default {
@@ -144,6 +144,18 @@ html .m-datepicker .ui-button.ui-state-disabled:active {
 	border: 1px solid #3089f1;
 	background-color: #3089f1 !important;
 	color: White !important;
+}
+.m-date-ranger a {
+	border: 1px solid #5d9de7 !important;
+	background-color: #5d9de7 !important;
+	background-image: none !important;
+	color: White !important;
+	font-weight: bold !important;
+	font-size: 16px;
+}
+.m-date-hover a {
+	border: 1px solid #5d9de7 !important;
+	background-color: #5d9de7 !important;
 }
 .Highlighted a {
 	border: 1px solid #3089f1 !important;
